@@ -44,12 +44,12 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         message)
-    elif "照片" in msg or "photo" in msg:
+  elif "照片" in msg or "photo" in msg:
         message=ImageSendMessage(original_content_url='https://example.com/original.jpg',preview_image_url='https://exmaple.com/prview.jpg')
         line_bot_api.reply_message(
             event.reply_token,
             message)
-    else:
+  else:
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
