@@ -40,7 +40,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # 回應使用者輸入的
-  if "貼圖" in event.message.text or "sticker" in event.message.text:
+  if "貼圖" in event.message or "sticker" in event.message:
         message=StickerSendMessage(
             package_id='1',sticker_id='1')
         line_bot_api.reply_message(
