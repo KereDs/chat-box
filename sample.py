@@ -40,7 +40,18 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # 回應使用者輸入的
-  
+  if "貼圖" in message or "sticker" in message:
+        message=StickerSendMessage(
+            package_id='1',sticker_id='1')
+        line_bot_api.reply_message(
+        event.reply_token,
+        message)
+    elif "照片" in msg or "photo" in msg:
+        message=ImageSendMessage(original_content_url='https://example.com/original.jpg',preview_image_url='https://exmaple.com/prview.jpg')
+        line_bot_api.reply_message(
+            event.reply_token,
+            message)
+    else:
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
